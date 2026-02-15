@@ -1,0 +1,15 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ ###
+.idea/
+*.iml
+
+### Logs ###
+*.log
+
+### OS ###
+.DS_Store
+
+### Application ###
+application-local.properties
