@@ -3,6 +3,7 @@ package com.quickserve.user.controller;
 import com.quickserve.user.dto.RegisterUserRequest;
 import com.quickserve.user.dto.UserResponse;
 import com.quickserve.user.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +17,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public UserResponse register(@RequestBody RegisterUserRequest request){
+    public UserResponse register(@Valid @RequestBody RegisterUserRequest request){
         return userService.register(request);
     }
 }

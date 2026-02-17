@@ -1,5 +1,6 @@
 package com.quickserve.user.service;
 
+import com.quickserve.exception.EmailAlreadyExistsException;
 import com.quickserve.user.dto.RegisterUserRequest;
 import com.quickserve.user.dto.UserResponse;
 import com.quickserve.user.entity.Role;
@@ -18,7 +19,7 @@ public class UserService {
 
     public UserResponse register(RegisterUserRequest request){
         if(userRepository.findByEmail(request.getEmail()).isPresent()){
-            throw new RuntimeException("Email already Exists");
+            throw new EmailAlreadyExistsException("Email already Exists");
         }
 
         User user=User.builder()
