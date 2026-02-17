@@ -1,0 +1,22 @@
+package com.quickserve.user.controller;
+
+import com.quickserve.user.dto.RegisterUserRequest;
+import com.quickserve.user.dto.UserResponse;
+import com.quickserve.user.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/users")
+@RequiredArgsConstructor
+public class UserController {
+    private final UserService userService;
+
+    @PostMapping("/register")
+    public UserResponse register(@RequestBody RegisterUserRequest request){
+        return userService.register(request);
+    }
+}
