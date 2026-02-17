@@ -1,7 +1,9 @@
 package com.quickserve.user.controller;
 
+import com.quickserve.user.dto.LoginRequest;
 import com.quickserve.user.dto.RegisterUserRequest;
 import com.quickserve.user.dto.UserResponse;
+import com.quickserve.user.entity.User;
 import com.quickserve.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +21,10 @@ public class UserController {
     @PostMapping("/register")
     public UserResponse register(@Valid @RequestBody RegisterUserRequest request){
         return userService.register(request);
+    }
+
+    @PostMapping("/login")
+    public UserResponse login(@Valid @RequestBody LoginRequest request){
+        return userService.login(request);
     }
 }

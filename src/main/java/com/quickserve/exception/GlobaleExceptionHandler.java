@@ -34,4 +34,14 @@ public class GlobaleExceptionHandler {
 
         return ResponseEntity.badRequest().body(errors);
     }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<?> handleInvalidCredentials(InvalidCredentialsException ex){
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+                Map.of(
+                        "timestamp", LocalDateTime.now(),
+                        "error",ex.getMessage()
+                )
+        );
+    }
 }
