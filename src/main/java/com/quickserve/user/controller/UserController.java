@@ -1,5 +1,6 @@
 package com.quickserve.user.controller;
 
+import com.quickserve.user.dto.AuthResponse;
 import com.quickserve.user.dto.LoginRequest;
 import com.quickserve.user.dto.RegisterUserRequest;
 import com.quickserve.user.dto.UserResponse;
@@ -7,10 +8,7 @@ import com.quickserve.user.entity.User;
 import com.quickserve.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/users")
@@ -24,7 +22,12 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public UserResponse login(@Valid @RequestBody LoginRequest request){
+    public AuthResponse login(@Valid @RequestBody LoginRequest request){
         return userService.login(request);
+    }
+
+    @GetMapping("/me")
+    public String me(){
+        return "me";
     }
 }
