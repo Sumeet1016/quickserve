@@ -1,4 +1,4 @@
-package com.quickserve.rider.entity;
+package com.quickserve.ride.entity;
 
 public enum RideStatus {
     REQUESTED,

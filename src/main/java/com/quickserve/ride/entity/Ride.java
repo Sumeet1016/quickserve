@@ -1,4 +1,4 @@
-package com.quickserve.rider.entity;
+package com.quickserve.ride.entity;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -40,7 +40,7 @@ public class Ride {
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "passenger_id",nullable = false)
-    private User passanger;
+    private User passenger;
     
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="rider_id")

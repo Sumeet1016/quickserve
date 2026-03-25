@@ -1,4 +1,4 @@
-package com.quickserve.rider.dto;
+package com.quickserve.ride.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

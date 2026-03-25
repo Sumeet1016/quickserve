@@ -19,6 +19,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/rider/onboard").hasRole("USER")
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/rides/request").hasRole("USER")
+                        .requestMatchers("/api/rides/available").hasRole("RIDER")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthFilter,org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);
@@ -31,3 +32,4 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+ 
